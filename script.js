@@ -16,19 +16,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initCertificateCarousel() {
   const track = document.getElementById("certificates-track");
+  const previousButton = document.getElementById("certificates-prev");
   const nextButton = document.getElementById("certificates-next");
-  if (!track || !nextButton) return;
+  if (!track || !previousButton || !nextButton) return;
+
+  const getStep = () => {
+    const firstCard = track.querySelector(".certificate-item");
+    if (!firstCard) return 0;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    return firstCard.getBoundingClientRect().width + gap;
+  };
 
   nextButton.addEventListener("click", () => {
-    const firstCard = track.querySelector(".certificate-item");
-    if (!firstCard) return;
-
-    const gap = parseFloat(getComputedStyle(track).gap) || 0;
-    const step = firstCard.getBoundingClientRect().width + gap;
+    const step = getStep();
+    if (!step) return;
     const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
 
     track.scrollTo({
       left: atEnd ? 0 : track.scrollLeft + step,
+      behavior: "smooth"
+    });
+  });
+
+  previousButton.addEventListener("click", () => {
+    const step = getStep();
+    if (!step) return;
+    const atStart = track.scrollLeft <= 4;
+
+    track.scrollTo({
+      left: atStart ? track.scrollWidth - track.clientWidth : track.scrollLeft - step,
       behavior: "smooth"
     });
   });
@@ -240,8 +256,12 @@ function initModal() {
       tagsContainer.appendChild(span);
     });
 
-    modal.querySelector(".modal-btn-code").href = project.github;
-    modal.querySelector(".modal-btn-live").href = project.webapp;
+    const codeButton = modal.querySelector(".modal-btn-code");
+    const liveButton = modal.querySelector(".modal-btn-live");
+    codeButton.href = project.github || "#";
+    liveButton.href = project.webapp || "#";
+    codeButton.hidden = !project.github;
+    liveButton.hidden = !project.webapp;
 
     modal.classList.add("show");
     document.body.style.overflow = "hidden"; // Disable scroll

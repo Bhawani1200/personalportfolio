@@ -1112,10 +1112,9 @@ section {
   scroll-snap-align: start;
 }
 
-.certificates-next {
+.certificates-nav {
   position: absolute;
   top: 38%;
-  right: -1.25rem;
   z-index: 3;
   display: inline-flex;
   align-items: center;
@@ -1131,9 +1130,22 @@ section {
   transition: background-color 0.25s ease, transform 0.25s ease;
 }
 
+.certificates-prev {
+  left: -1.25rem;
+}
+
+.certificates-next {
+  right: -1.25rem;
+}
+
 .certificates-next:hover {
   background: #6d28d9;
   transform: translateX(0.2rem);
+}
+
+.certificates-prev:hover {
+  background: #6d28d9;
+  transform: translateX(-0.2rem);
 }
 
 @media (max-width: 900px) {
@@ -1149,6 +1161,10 @@ section {
 
   .certificates-next {
     right: 0.5rem;
+  }
+
+  .certificates-prev {
+    left: 0.5rem;
   }
 }
 
