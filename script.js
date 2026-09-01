@@ -11,7 +11,28 @@ document.addEventListener("DOMContentLoaded", () => {
   initModal();
   initContactForm();
   initExperiences();
+  initCertificateCarousel();
 });
+
+function initCertificateCarousel() {
+  const track = document.getElementById("certificates-track");
+  const nextButton = document.getElementById("certificates-next");
+  if (!track || !nextButton) return;
+
+  nextButton.addEventListener("click", () => {
+    const firstCard = track.querySelector(".certificate-item");
+    if (!firstCard) return;
+
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const step = firstCard.getBoundingClientRect().width + gap;
+    const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+
+    track.scrollTo({
+      left: atEnd ? 0 : track.scrollLeft + step,
+      behavior: "smooth"
+    });
+  });
+}
 
 /* 1. Navbar Scroll Effect & Smooth Navigation */
 function initNavbar() {

@@ -49,6 +49,7 @@
         <li><button data-target="work">Projects</button></li>
         <li><button data-target="certificates">Certificates</button></li>
         <li><button data-target="education">Education</button></li>
+        <!-- <li><button type="button" onclick="window.location.href='./cv.html'">CV</button></li> -->
         <li><button data-target="contact">Contact</button></li>
       </ul>
 
@@ -75,6 +76,7 @@
           <li><button data-target="work">Projects</button></li>
           <li><button data-target="certificates">Certificates</button></li>
           <li><button data-target="education">Education</button></li>
+          <li><button type="button" onclick="window.location.href='./cv.html'">CV</button></li>
           <li><button data-target="contact">Contact</button></li>
           <div class="mobile-socials">
             <a href="https://github.com/Bhawani1200" target="_blank" rel="noopener noreferrer"
@@ -107,8 +109,7 @@
           I specialize in React for front-end development and Java and .NET for back-end development.
           I enjoy turning ideas into functional, scalable, and efficient applications.
         </p>
-        <a href="https://drive.google.com/file/d/1_pLl2wjYVCU-wnqXIhjhYr0YC0SJXvwv/view?usp=sharing" target="_blank"
-          rel="noopener noreferrer" class="btn-cv">
+        <a href="./cv.html" class="btn-cv">
           DOWNLOAD CV
         </a>
       </div>
@@ -308,128 +309,69 @@
         </p>
       </div>
 
-      <div class="certificates-grid">
+      <div class="certificates-carousel">
+      <div class="certificates-grid" id="certificates-track">
+        <a href="./certificate.html?cert=nextjs" class="certificate-item" aria-label="View Next.js certificate">
+          <div class="cert-card"><img src="./assets/certificates/Nextjs.jpg" alt="Next.js course certificate"></div>
+          <div class="certificate-details">
+            <span class="cert-issuer">CODE IT</span>
+            <h3 class="cert-title">Next.js</h3>
+            <p class="cert-date"><i class="fa-regular fa-calendar"></i> 16 July 2024</p>
+          </div>
+        </a>
 
-        <!-- Certificate 1 -->
-        <div class="cert-card">
-          <div class="cert-icon-wrapper">
-            <i class="fa-solid fa-certificate cert-icon"></i>
+        <a href="./certificate.html?cert=nodejs" class="certificate-item" aria-label="View Node.js certificate">
+          <div class="cert-card"><img src="./assets/certificates/Nodejs.jpg" alt="Node.js course certificate"></div>
+          <div class="certificate-details">
+            <span class="cert-issuer">CODE IT</span>
+            <h3 class="cert-title">Node.js</h3>
+            <p class="cert-date"><i class="fa-regular fa-calendar"></i> 3 June 2024</p>
           </div>
-          <div class="cert-body">
-            <span class="cert-issuer">Coursera</span>
-            <h3 class="cert-title">The Complete React Developer Course</h3>
-            <p class="cert-date"><i class="fa-regular fa-calendar"></i> Jan 2024</p>
-            <div class="cert-tags">
-              <span class="cert-tag">React</span>
-              <span class="cert-tag">JavaScript</span>
-              <span class="cert-tag">Redux</span>
-            </div>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-view-btn">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
-            </a>
-          </div>
-        </div>
+        </a>
 
-        <!-- Certificate 2 -->
-        <div class="cert-card">
-          <div class="cert-icon-wrapper">
-            <i class="fa-solid fa-certificate cert-icon"></i>
+        <a href="./certificate.html?cert=reactjs" class="certificate-item" aria-label="View React.js certificate">
+          <div class="cert-card"><img src="./assets/certificates/Reactjs.jpg" alt="React.js course certificate"></div>
+          <div class="certificate-details">
+            <span class="cert-issuer">CODE IT</span>
+            <h3 class="cert-title">React.js</h3>
+            <p class="cert-date"><i class="fa-regular fa-calendar"></i> 24 June 2024</p>
           </div>
-          <div class="cert-body">
+        </a>
+
+        <a href="./certificate.html?cert=fullstack" class="certificate-item" aria-label="View Spring Boot and React full-stack certificate">
+          <div class="cert-card"><img src="./assets/certificates/UC-80f4726e-a5c8-4e94-bfbb-1e618c2dea64_page-0001.jpg" alt="Spring Boot and React full-stack Udemy certificate"></div>
+          <div class="certificate-details">
             <span class="cert-issuer">Udemy</span>
-            <h3 class="cert-title">Java Programming Masterclass</h3>
-            <p class="cert-date"><i class="fa-regular fa-calendar"></i> Mar 2024</p>
-            <div class="cert-tags">
-              <span class="cert-tag">Java</span>
-              <span class="cert-tag">OOP</span>
-              <span class="cert-tag">Spring</span>
-            </div>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-view-btn">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
-            </a>
+            <h3 class="cert-title">Spring Boot + React Full-Stack</h3>
+            <p class="cert-date"><i class="fa-regular fa-calendar"></i> 9 June 2025 · 20 hours</p>
           </div>
-        </div>
+        </a>
 
-        <!-- Certificate 3 -->
-        <div class="cert-card">
-          <div class="cert-icon-wrapper">
-            <i class="fa-solid fa-certificate cert-icon"></i>
+        <a href="./certificate.html?cert=ecommerce-masterclass" class="certificate-item" aria-label="View Java Spring Boot eCommerce certificate">
+          <div class="cert-card cert-pdf-thumbnail">
+            <iframe src="./assets/certificates/UC-78191506-6e17-4403-bef3-d9bf4ff4cce9.pdf#view=Fit&amp;toolbar=0&amp;navpanes=0" title="Java Spring Boot eCommerce certificate preview" tabindex="-1"></iframe>
           </div>
-          <div class="cert-body">
-            <span class="cert-issuer">Microsoft Learn</span>
-            <h3 class="cert-title">ASP.NET Core Web Development</h3>
-            <p class="cert-date"><i class="fa-regular fa-calendar"></i> Jun 2024</p>
-            <div class="cert-tags">
-              <span class="cert-tag">ASP.NET</span>
-              <span class="cert-tag">C#</span>
-              <span class="cert-tag">.NET</span>
-            </div>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-view-btn">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
-            </a>
+          <div class="certificate-details">
+            <span class="cert-issuer">Udemy</span>
+            <h3 class="cert-title">Java Spring Boot: eCommerce Masterclass</h3>
+            <p class="cert-date"><i class="fa-regular fa-calendar"></i> 1 September 2026 · 93 hours</p>
           </div>
-        </div>
+        </a>
 
-        <!-- Certificate 4 -->
-        <div class="cert-card">
-          <div class="cert-icon-wrapper">
-            <i class="fa-solid fa-certificate cert-icon"></i>
+        <a href="./certificate.html?cert=udaan-internship" class="certificate-item" aria-label="View Udaan Tech Solution internship certificate">
+          <div class="cert-card">
+            <img src="./assets/certificates/WhatsApp Image 2026-09-01 at 10.34.40 PM.jpeg" alt="Udaan Tech Solution internship certificate of appreciation">
           </div>
-          <div class="cert-body">
-            <span class="cert-issuer">freeCodeCamp</span>
-            <h3 class="cert-title">Responsive Web Design Certification</h3>
-            <p class="cert-date"><i class="fa-regular fa-calendar"></i> Aug 2023</p>
-            <div class="cert-tags">
-              <span class="cert-tag">HTML</span>
-              <span class="cert-tag">CSS</span>
-              <span class="cert-tag">UI/UX</span>
-            </div>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-view-btn">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
-            </a>
+          <div class="certificate-details">
+            <span class="cert-issuer">Udaan Tech Solution</span>
+            <h3 class="cert-title">Internship Certificate of Appreciation</h3>
+            <p class="cert-date"><i class="fa-regular fa-calendar"></i> 6 February 2026</p>
           </div>
-        </div>
-
-        <!-- Certificate 5 -->
-        <div class="cert-card">
-          <div class="cert-icon-wrapper">
-            <i class="fa-solid fa-certificate cert-icon"></i>
-          </div>
-          <div class="cert-body">
-            <span class="cert-issuer">LinkedIn Learning</span>
-            <h3 class="cert-title">SQL Essential Training</h3>
-            <p class="cert-date"><i class="fa-regular fa-calendar"></i> Nov 2023</p>
-            <div class="cert-tags">
-              <span class="cert-tag">SQL</span>
-              <span class="cert-tag">MySQL</span>
-              <span class="cert-tag">Database</span>
-            </div>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-view-btn">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
-            </a>
-          </div>
-        </div>
-
-        <!-- Certificate 6 -->
-        <div class="cert-card">
-          <div class="cert-icon-wrapper">
-            <i class="fa-solid fa-certificate cert-icon"></i>
-          </div>
-          <div class="cert-body">
-            <span class="cert-issuer">Google</span>
-            <h3 class="cert-title">Foundations of User Experience Design</h3>
-            <p class="cert-date"><i class="fa-regular fa-calendar"></i> Feb 2024</p>
-            <div class="cert-tags">
-              <span class="cert-tag">UX Design</span>
-              <span class="cert-tag">Figma</span>
-              <span class="cert-tag">Prototyping</span>
-            </div>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-view-btn">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate
-            </a>
-          </div>
-        </div>
-
+        </a>
+      </div>
+      <button type="button" class="certificates-next" id="certificates-next" aria-label="Show next certificate">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
       </div>
     </section>
 
@@ -558,6 +500,7 @@
       <button data-target="work">Projects</button>
       <button data-target="certificates">Certificates</button>
       <button data-target="education">Education</button>
+      <button type="button" onclick="window.location.href='./cv.html'">CV</button>
     </nav>
     <div class="footer-socials">
       <a href="https://www.facebook.com/bhawani.limbu.37/" target="_blank" rel="noopener noreferrer"
