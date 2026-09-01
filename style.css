@@ -789,6 +789,30 @@ section {
   object-fit: cover;
 }
 
+/* Slightly larger Education logos only */
+#education .timeline-logo {
+  width: 4.75rem;
+  height: 4.75rem;
+  padding: 0.2rem;
+}
+
+#education .timeline-logo img,
+#education .timeline-circle img {
+  object-fit: contain;
+}
+
+#education .timeline-circle {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+@media (min-width: 640px) {
+  #education .timeline-circle {
+    width: 4.75rem;
+    height: 4.75rem;
+  }
+}
+
 .timeline-meta {
   display: flex;
   flex-direction: column;
