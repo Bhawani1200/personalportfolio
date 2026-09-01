@@ -867,7 +867,7 @@ section {
 /* gap-12 = 3rem | grid-cols-1 → md:grid-cols-2 → lg:grid-cols-3 */
 .projects-grid {
   display: grid;
-  gap: 3rem;
+  gap: 2rem;
   grid-template-columns: 1fr;
   width: 100%;
 }
@@ -905,25 +905,25 @@ section {
 
 /* p-4 image wrapper */
 .project-img-container {
-  padding: 1rem;
+  padding: 0.75rem;
 }
 
 /* w-full h-48 object-cover rounded-xl */
 .project-card img {
   width: 100%;
-  height: 12rem; /* h-48 */
+  height: 9rem;
   object-fit: cover;
   border-radius: 0.75rem; /* rounded-xl */
 }
 
 /* p-6 content wrapper */
 .project-content {
-  padding: 1.5rem;
+  padding: 0.5rem 1rem 1rem;
 }
 
 /* text-2xl font-bold text-white mb-2 */
 .project-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-white);
   margin-bottom: 0.5rem;
@@ -932,17 +932,17 @@ section {
 /* text-gray-500 mb-4 pt-4 line-clamp-3 */
 .project-desc {
   color: #6b7280; /* gray-500 */
-  margin-bottom: 1rem;
-  padding-top: 1rem;
+  margin-bottom: 0.75rem;
+  padding-top: 0.35rem;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 /* mb-4 tags wrapper */
 .project-tags {
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 /* inline-block bg-[#251f38] text-xs font-semibold text-purple-500 rounded-full px-2 py-1 mr-2 mb-2 */
@@ -957,6 +957,143 @@ section {
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+/* Certificates Section — card layout matching Projects */
+#certificates {
+  padding: 6rem clamp(1rem, 7vw, 6rem);
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 20px 50px -10px rgba(168, 85, 247, 0.5);
+}
+
+.cert-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7rem;
+  margin: 0.75rem 0.75rem 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #251f38 0%, #17102e 55%, #8245ec 140%);
+}
+
+.cert-icon {
+  color: #a855f7;
+  font-size: 3.25rem;
+  filter: drop-shadow(0 8px 18px rgba(168, 85, 247, 0.35));
+}
+
+.cert-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.cert-issuer {
+  color: #a855f7;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cert-title {
+  margin: 0.35rem 0;
+  color: var(--text-white);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.cert-date {
+  margin-bottom: 0.65rem;
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.cert-date i {
+  margin-right: 0.35rem;
+  color: #a855f7;
+}
+
+.cert-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.cert-tag {
+  padding: 0.25rem 0.55rem;
+  background: #251f38;
+  border-radius: 9999px;
+  color: #a855f7;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.cert-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding: 0.55rem 0.85rem;
+  background: #8245ec;
+  border-radius: 0.65rem;
+  color: var(--text-white);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.cert-view-btn:hover {
+  background: #6d28d9;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 420px) {
+  #certificates {
+    padding-inline: 1rem;
+  }
+
+  .certificates-grid {
+    gap: 1.25rem;
+  }
+
+  .cert-icon-wrapper {
+    height: 6rem;
+  }
+
+  .cert-body {
+    padding: 0.9rem;
+  }
+}
+
 
 /* Modal Popup container */
 .modal-overlay {
