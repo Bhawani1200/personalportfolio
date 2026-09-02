@@ -1013,6 +1013,33 @@ section {
   margin-bottom: 0.25rem;
 }
 
+.project-github-link {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-gray-light);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.project-github-link .fa-github {
+  font-size: 1.2rem;
+}
+
+.project-link-arrow {
+  margin-left: auto;
+  font-size: 0.72rem;
+}
+
+.project-github-link:hover {
+  color: #a855f7;
+}
+
 /* inline-block bg-[#251f38] text-xs font-semibold text-purple-500 rounded-full px-2 py-1 mr-2 mb-2 */
 .project-tag {
   display: inline-block;

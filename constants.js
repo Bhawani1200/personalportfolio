@@ -17,7 +17,7 @@ const projects = [
     description: "A full-stack footwear e-commerce application built with React and Java. It includes product search, category and brand browsing, new arrivals and sale sections, user accounts, a shopping cart, order management, and integrated payment options. PostgreSQL is used for data storage, while Postman is used to develop and test the REST APIs.",
     image: "./assets/project_photo/Screenshot 2026-09-01 114601.png",
     tags: ["React", "Java", "Full Stack", "PostgreSQL", "REST API", "Postman", "Payment Integration"],
-    github: "",
+    github: "https://github.com/Bhawani1200/SneakersZone",
     webapp: ""
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     description: "A React project built as part of a Udemy course, featuring a real-time AI chatbot with API integrations for ChatGPT, Gemini, DeepSeek, Claude, and Grok. Users can interact with multiple AI models through one responsive chat interface.",
     image: "./assets/project_photo/Screenshot 2026-09-01 114952.png",
     tags: ["React", "Real-Time Chat", "ChatGPT API", "Gemini API", "DeepSeek API", "Claude API", "Grok API"],
-    github: "",
+    github: "https://github.com/Bhawani1200/AI-Chatbot",
     webapp: ""
   },
   {
@@ -35,7 +35,7 @@ const projects = [
     description: "A Java desktop arcade game inspired by Flappy Bird. Built with Swing and AWT, it uses a timer-driven game loop, keyboard input, custom Graphics2D rendering, image assets, object-oriented game components, and collision detection for the bird, pipes, and ground.",
     image: "./assets/project_photo/Screenshot 2026-09-01 224600.png",
     tags: ["Java", "Java Swing", "Java AWT", "OOP", "Collision Detection"],
-    github: "",
+    github: "https://github.com/Bhawani1200/simple-floppy-bird-game",
     webapp: ""
   },
   {
@@ -44,7 +44,7 @@ const projects = [
     description: "A full-stack bookstore management application built with ASP.NET Core MVC. It provides CRUD operations for books, genres, authors, and publishers, with Razor-based views, responsive Bootstrap styling, Entity Framework Core persistence, and SQL Server Management Studio (SSMS) for database management.",
     image: "./assets/project_photo/Screenshot 2026-09-01 231501.png",
     tags: ["C#", "ASP.NET Core MVC", "Entity Framework Core", "SSMS", "Bootstrap"],
-    github: "",
+    github: "https://github.com/Bhawani1200/Book-store",
     webapp: ""
   },
   {
@@ -53,7 +53,7 @@ const projects = [
     description: "A full-stack employee management application with a React frontend and a Java backend. It provides create, read, update, and delete (CRUD) operations for employee records, uses MySQL Workbench to manage the MySQL database, and uses Postman to test the REST APIs.",
     image: "./assets/project_photo/Screenshot 2026-09-01 232359.png",
     tags: ["React", "Java", "CRUD", "REST API", "MySQL", "MySQL Workbench", "Postman"],
-    github: "",
+    github: "https://github.com/Bhawani1200/employee-management",
     webapp: ""
   },
   {
@@ -62,7 +62,7 @@ const projects = [
     description: "An employee and department records management system built with ASP.NET Core MVC 7.0. It supports create, read, update, and delete (CRUD) operations for employee and department records, with Microsoft SQL Server used for data storage and SQL Server Management Studio (SSMS) used for database management.",
     image: "./assets/project_photo/Screenshot 2026-09-02 115425.png",
     tags: ["C#", "ASP.NET Core MVC 7", "CRUD", "SQL Server", "SSMS", "Employee Management"],
-    github: "",
+    github: "https://github.com/Bhawani1200/employee-management",
     webapp: ""
   }
 ];

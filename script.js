@@ -279,6 +279,10 @@ function initModal() {
     });
   });
 
+  document.querySelectorAll(".project-github-link").forEach(link => {
+    link.addEventListener("click", event => event.stopPropagation());
+  });
+
   closeBtn.addEventListener("click", closeModal);
 
   // Close on backdrop click
@@ -426,6 +430,13 @@ function initProjects() {
             <div class="project-tags">
               ${tagsHtml}
             </div>
+            ${project.github ? `
+              <a class="project-github-link" href="${project.github}" target="_blank" rel="noopener noreferrer" aria-label="View ${project.title} repository on GitHub">
+                <i class="fa-brands fa-github"></i>
+                <span>View Repository</span>
+                <i class="fa-solid fa-arrow-up-right-from-square project-link-arrow"></i>
+              </a>
+            ` : ""}
           </div>
         </div>
     `;
