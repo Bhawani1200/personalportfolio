@@ -301,32 +301,39 @@ function initContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    if (typeof emailjs === "undefined") {
+      showToast("Email service is unavailable. Please try again later.", "error");
+      return;
+    }
 
     const submitBtn = form.querySelector(".btn-submit");
     const originalText = submitBtn.textContent;
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
 
-    // Send Form via EmailJS
-    emailjs.sendForm(
-      "service_axbtt7a",  // Service ID
-      "template_1ziboq3", // Template ID
-      form
-    )
-      .then(() => {
-        showToast("Message sent successfully! ✅", "success");
-        form.reset();
-      })
-      .catch((error) => {
-        console.error("EmailJS Error:", error);
-        showToast("Failed to send message. Please try again.", "error");
-      })
-      .finally(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      });
+    try {
+      await emailjs.sendForm(
+        "service_axbtt7a",
+        "template_1ziboq3",
+        form
+      );
+      showToast("Message sent successfully! ✅", "success");
+      form.reset();
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      showToast("Failed to send message. Please try again.", "error");
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
   });
 }
 

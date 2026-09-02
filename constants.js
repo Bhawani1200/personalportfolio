@@ -41,9 +41,9 @@ const projects = [
   {
     id: 3,
     title: "Book Store Management System",
-    description: "A full-stack bookstore management application built with ASP.NET Core MVC. It provides CRUD operations for books, genres, authors, and publishers, with Razor-based views, responsive Bootstrap styling, Entity Framework Core persistence, and SQL Server integration.",
+    description: "A full-stack bookstore management application built with ASP.NET Core MVC. It provides CRUD operations for books, genres, authors, and publishers, with Razor-based views, responsive Bootstrap styling, Entity Framework Core persistence, and SQL Server Management Studio (SSMS) for database management.",
     image: "./assets/project_photo/Screenshot 2026-09-01 231501.png",
-    tags: ["C#", "ASP.NET Core MVC", "Entity Framework Core", "SQL Server", "Bootstrap"],
+    tags: ["C#", "ASP.NET Core MVC", "Entity Framework Core", "SSMS", "Bootstrap"],
     github: "",
     webapp: ""
   },
@@ -53,6 +53,15 @@ const projects = [
     description: "A full-stack employee management application with a React frontend and a Java backend. It provides create, read, update, and delete (CRUD) operations for employee records, uses MySQL Workbench to manage the MySQL database, and uses Postman to test the REST APIs.",
     image: "./assets/project_photo/Screenshot 2026-09-01 232359.png",
     tags: ["React", "Java", "CRUD", "REST API", "MySQL", "MySQL Workbench", "Postman"],
+    github: "",
+    webapp: ""
+  },
+  {
+    id: 5,
+    title: "Employee Records Management",
+    description: "An employee and department records management system built with ASP.NET Core MVC 7.0. It supports create, read, update, and delete (CRUD) operations for employee and department records, with Microsoft SQL Server used for data storage and SQL Server Management Studio (SSMS) used for database management.",
+    image: "./assets/project_photo/Screenshot 2026-09-02 115425.png",
+    tags: ["C#", "ASP.NET Core MVC 7", "CRUD", "SQL Server", "SSMS", "Employee Management"],
     github: "",
     webapp: ""
   }
