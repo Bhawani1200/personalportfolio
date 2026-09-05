@@ -1,9 +1,6 @@
-// script.js - Portfolio Interactive Logic
 
-// Embedded Data (projects, experiences) is loaded from constants.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  initThemeTester();
   initNavbar();
   initTypewriter();
   initTiltEffect();
@@ -14,32 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initExperiences();
   initCertificateCarousel();
 });
-
-function initThemeTester() {
-  const tester = document.getElementById("theme-tester");
-  if (!tester) return;
-
-  const toggle = tester.querySelector(".theme-tester-toggle");
-  const options = tester.querySelectorAll(".theme-option");
-  const savedTheme = localStorage.getItem("portfolio-theme") || "original";
-
-  const applyTheme = theme => {
-    if (theme === "original") document.body.removeAttribute("data-theme");
-    else document.body.setAttribute("data-theme", theme);
-
-    localStorage.setItem("portfolio-theme", theme);
-    options.forEach(option => option.classList.toggle("active", option.dataset.themeName === theme));
-  };
-
-  applyTheme(savedTheme);
-
-  toggle.addEventListener("click", () => {
-    const isOpen = tester.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  options.forEach(option => option.addEventListener("click", () => applyTheme(option.dataset.themeName)));
-}
 
 function initCertificateCarousel() {
   const track = document.getElementById("certificates-track");
@@ -77,13 +48,11 @@ function initCertificateCarousel() {
   });
 }
 
-/* 1. Navbar Scroll Effect & Smooth Navigation */
 function initNavbar() {
   const navbar = document.querySelector(".navbar");
   const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
   const mobileMenu = document.querySelector(".mobile-menu");
 
-  // Navbar scroll background toggle
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
       navbar.classList.add("scrolled");
@@ -92,7 +61,6 @@ function initNavbar() {
     }
   });
 
-  // Mobile menu toggle
   mobileMenuBtn.addEventListener("click", () => {
     const icon = mobileMenuBtn.querySelector("i");
     mobileMenu.classList.toggle("open");
@@ -106,7 +74,6 @@ function initNavbar() {
     }
   });
 
-  // Smooth scroll helper
   const navigateToSection = (sectionId) => {
     mobileMenu.classList.remove("open");
     const icon = mobileMenuBtn.querySelector("i");
@@ -126,7 +93,6 @@ function initNavbar() {
     }
   };
 
-  // Bind clicks
   document.querySelectorAll("[data-target]").forEach(btn => {
     btn.addEventListener("click", () => {
       const sectionId = btn.getAttribute("data-target");
@@ -134,14 +100,13 @@ function initNavbar() {
     });
   });
 
-  // Scroll active section highlighter
   const sections = document.querySelectorAll("section");
   const navButtons = document.querySelectorAll(".nav-links li button");
   const mobileButtons = document.querySelectorAll(".mobile-menu button");
 
   window.addEventListener("scroll", () => {
     let current = "";
-    const scrollPos = window.scrollY + 120; // offset for nav
+    const scrollPos = window.scrollY + 120;
 
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
@@ -165,7 +130,6 @@ function initNavbar() {
   });
 }
 
-/* 2. Typewriter Effect */
 function initTypewriter() {
   const typingElement = document.querySelector(".about-typing");
   if (!typingElement) return;
@@ -192,7 +156,6 @@ function initTypewriter() {
     }
 
     if (!isDeleting && charIndex === currentWord.length) {
-      // Pause at the end
       speed = 2000;
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
@@ -204,11 +167,9 @@ function initTypewriter() {
     setTimeout(type, speed);
   };
 
-  // Start the typewriter loop
   setTimeout(type, 500);
 }
 
-/* 3. Parallax Card Tilt Effect */
 function initTiltEffect() {
   const tiltElements = document.querySelectorAll(".tilt-effect");
 
@@ -221,7 +182,6 @@ function initTiltEffect() {
       const xc = rect.width / 2;
       const yc = rect.height / 2;
 
-      // Calculate rotation angles (max 20 degrees)
       const maxTilt = 20;
       const angleX = -((y - yc) / yc) * maxTilt;
       const angleY = ((x - xc) / xc) * maxTilt;
@@ -240,7 +200,6 @@ function initTiltEffect() {
   });
 }
 
-/* 4. Scroll Reveal (Intersection Observer) */
 function initScrollReveal() {
   const elements = document.querySelectorAll(".scroll-reveal");
 
@@ -248,7 +207,7 @@ function initScrollReveal() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target); // Trigger only once
+        observer.unobserve(entry.target);
       }
     });
   }, {
@@ -259,7 +218,6 @@ function initScrollReveal() {
   elements.forEach(el => observer.observe(el));
 }
 
-/* 5. Projects Modal Popup */
 function initModal() {
   const modal = document.getElementById("project-modal");
   const closeBtn = document.querySelector(".modal-close-btn");
@@ -291,12 +249,12 @@ function initModal() {
     liveButton.hidden = !project.webapp;
 
     modal.classList.add("show");
-    document.body.style.overflow = "hidden"; // Disable scroll
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
     modal.classList.remove("show");
-    document.body.style.overflow = ""; // Restore scroll
+    document.body.style.overflow = "";
   };
 
   projectCards.forEach(card => {
@@ -312,14 +270,12 @@ function initModal() {
 
   closeBtn.addEventListener("click", closeModal);
 
-  // Close on backdrop click
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       closeModal();
     }
   });
 
-  // Close on Escape key
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modal.classList.contains("show")) {
       closeModal();
@@ -327,10 +283,15 @@ function initModal() {
   });
 }
 
-/* 6. EmailJS Form Handling & Toast Messages */
 function initContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
+
+  const emailConfig = {
+    serviceId: "service_9fnu86f",
+    templateId: "template_3d3wnlq",
+    publicKey: "tCkLrJHYHy9gWO00m"
+  };
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -349,65 +310,88 @@ function initContactForm() {
     const originalText = submitBtn.textContent;
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
+    submitBtn.setAttribute("aria-busy", "true");
 
     try {
-      await emailjs.sendForm(
-        "service_axbtt7a",
-        "template_1ziboq3",
-        form
+      const formData = new FormData(form);
+      const senderName = formData.get("user_name").trim();
+      const senderEmail = formData.get("user_email").trim();
+      const subject = formData.get("subject").trim();
+      const message = formData.get("message").trim();
+
+      const templateParams = {
+        to_email: formData.get("to_email"),
+        user_name: senderName,
+        user_email: senderEmail,
+        from_name: senderName,
+        from_email: senderEmail,
+        reply_to: senderEmail,
+        subject,
+        title: subject,
+        message
+      };
+
+      await emailjs.send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        templateParams,
+        { publicKey: emailConfig.publicKey }
       );
       showToast("Message sent successfully! ✅", "success");
       form.reset();
     } catch (error) {
       console.error("EmailJS Error:", error);
-      showToast("Failed to send message. Please try again.", "error");
+      const errorMessage = error?.text || error?.message || "Please try again.";
+      showToast(`Message could not be sent: ${errorMessage}`, "error");
     } finally {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
+      submitBtn.removeAttribute("aria-busy");
     }
   });
 }
 
-/* Toast Message Helper */
 function showToast(message, type = "success") {
   const container = document.getElementById("toast-container");
   if (!container) return;
 
   const toast = document.createElement("div");
   toast.className = `toast ${type}`;
-  toast.innerHTML = `
-    <span>${message}</span>
-    <button class="toast-close"><i class="fa-solid fa-xmark"></i></button>
-  `;
+  const toastMessage = document.createElement("span");
+  toastMessage.textContent = message;
+
+  const closeButton = document.createElement("button");
+  closeButton.className = "toast-close";
+  closeButton.type = "button";
+  closeButton.setAttribute("aria-label", "Dismiss notification");
+  closeButton.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+
+  toast.append(toastMessage, closeButton);
 
   container.appendChild(toast);
 
-  // Trigger browser paint to allow smooth animation
   setTimeout(() => toast.classList.add("show"), 10);
 
   const removeToast = () => {
     toast.classList.remove("show");
-    // Remove from DOM after transition finishes
     setTimeout(() => toast.remove(), 300);
   };
 
-  toast.querySelector(".toast-close").addEventListener("click", removeToast);
+  closeButton.addEventListener("click", removeToast);
 
-  // Auto-remove after 4 seconds
   setTimeout(removeToast, 4000);
 }
 
-/* 7. Dynamic Experience Rendering */
 function initExperiences() {
   const timelineContainer = document.getElementById("experience-timeline");
   if (!timelineContainer || typeof experiences === "undefined") return;
-  
+
   let html = `<div class="timeline-line"></div>`;
-  
+
   experiences.forEach((exp, index) => {
     const alignment = index % 2 === 0 ? "align-right" : "align-left";
     const skillsHtml = exp.skills.map(skill => `<li class="timeline-skill-badge">${skill}</li>`).join("");
-    
+
     html += `
         <div class="timeline-entry ${alignment}">
           <div class="timeline-circle">
@@ -433,19 +417,18 @@ function initExperiences() {
         </div>
     `;
   });
-  
+
   timelineContainer.innerHTML = html;
 }
 
-/* 8. Dynamic Projects Rendering */
 function initProjects() {
   const projectsGrid = document.getElementById("projects-grid");
   if (!projectsGrid || typeof projects === "undefined") return;
-  
+
   let html = "";
   projects.forEach((project) => {
     const tagsHtml = project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join("");
-    
+
     html += `
         <div class="project-card" data-id="${project.id}">
           <div class="project-img-container">
@@ -468,6 +451,6 @@ function initProjects() {
         </div>
     `;
   });
-  
+
   projectsGrid.innerHTML = html;
 }
