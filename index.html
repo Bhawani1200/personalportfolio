@@ -31,6 +31,19 @@
   </head>
 
   <body>
+    <!-- Temporary Theme Previewer: select Original to restore this design -->
+    <div class="theme-tester" id="theme-tester">
+      <button type="button" class="theme-tester-toggle" aria-expanded="false" aria-controls="theme-options">
+        <i class="fa-solid fa-palette"></i><span>Test Theme</span>
+      </button>
+      <div class="theme-options" id="theme-options">
+        <button type="button" class="theme-option active" data-theme-name="original"><span class="theme-swatch theme-swatch-original"></span>Original</button>
+        <button type="button" class="theme-option" data-theme-name="ocean"><span class="theme-swatch theme-swatch-ocean"></span>Ocean</button>
+        <button type="button" class="theme-option" data-theme-name="emerald"><span class="theme-swatch theme-swatch-emerald"></span>Emerald</button>
+        <button type="button" class="theme-option" data-theme-name="sunset"><span class="theme-swatch theme-swatch-sunset"></span>Sunset</button>
+      </div>
+    </div>
+
     <!-- Background Decorative Grid Overlay -->
     <div class="grid-overlay"></div>
 

@@ -3,6 +3,7 @@
 // Embedded Data (projects, experiences) is loaded from constants.js
 
 document.addEventListener("DOMContentLoaded", () => {
+  initThemeTester();
   initNavbar();
   initTypewriter();
   initTiltEffect();
@@ -13,6 +14,32 @@ document.addEventListener("DOMContentLoaded", () => {
   initExperiences();
   initCertificateCarousel();
 });
+
+function initThemeTester() {
+  const tester = document.getElementById("theme-tester");
+  if (!tester) return;
+
+  const toggle = tester.querySelector(".theme-tester-toggle");
+  const options = tester.querySelectorAll(".theme-option");
+  const savedTheme = localStorage.getItem("portfolio-theme") || "original";
+
+  const applyTheme = theme => {
+    if (theme === "original") document.body.removeAttribute("data-theme");
+    else document.body.setAttribute("data-theme", theme);
+
+    localStorage.setItem("portfolio-theme", theme);
+    options.forEach(option => option.classList.toggle("active", option.dataset.themeName === theme));
+  };
+
+  applyTheme(savedTheme);
+
+  toggle.addEventListener("click", () => {
+    const isOpen = tester.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  options.forEach(option => option.addEventListener("click", () => applyTheme(option.dataset.themeName)));
+}
 
 function initCertificateCarousel() {
   const track = document.getElementById("certificates-track");

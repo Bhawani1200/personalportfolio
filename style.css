@@ -20,6 +20,94 @@
   --btn-gradient: linear-gradient(90deg, #8245ec, #a855f7);
 }
 
+body[data-theme="ocean"] {
+  --bg-dark: #04111f;
+  --section-surface: #071b2d;
+  --section-surface-alt: #09243a;
+  --card-surface: #0b2134;
+  --primary: #0ea5e9;
+  --primary-glow: rgba(14, 165, 233, 0.3);
+  --primary-glow-heavy: rgba(14, 165, 233, 0.5);
+  --skills-gradient: linear-gradient(38deg, rgba(14, 165, 233, 0.17), transparent 55%), linear-gradient(145deg, transparent 45%, rgba(6, 182, 212, 0.14));
+  --btn-gradient: linear-gradient(90deg, #0284c7, #06b6d4);
+}
+
+body[data-theme="emerald"] {
+  --bg-dark: #06140f;
+  --section-surface: #0a2118;
+  --section-surface-alt: #0d2b20;
+  --card-surface: #0e261d;
+  --primary: #10b981;
+  --primary-glow: rgba(16, 185, 129, 0.3);
+  --primary-glow-heavy: rgba(16, 185, 129, 0.5);
+  --skills-gradient: linear-gradient(38deg, rgba(16, 185, 129, 0.16), transparent 55%), linear-gradient(145deg, transparent 45%, rgba(52, 211, 153, 0.12));
+  --btn-gradient: linear-gradient(90deg, #059669, #34d399);
+}
+
+body[data-theme="sunset"] {
+  --bg-dark: #170b12;
+  --section-surface: #27101a;
+  --section-surface-alt: #321522;
+  --card-surface: #2b1520;
+  --primary: #f97316;
+  --primary-glow: rgba(249, 115, 22, 0.3);
+  --primary-glow-heavy: rgba(249, 115, 22, 0.5);
+  --skills-gradient: linear-gradient(38deg, rgba(244, 63, 94, 0.15), transparent 55%), linear-gradient(145deg, transparent 45%, rgba(249, 115, 22, 0.14));
+  --btn-gradient: linear-gradient(90deg, #e11d48, #f97316);
+}
+
+body[data-theme] .section-line,
+body[data-theme] .timeline-skill-badge,
+body[data-theme] .certificates-nav,
+body[data-theme] .cv-icon-download {
+  background: var(--primary);
+}
+
+body[data-theme] .project-tag,
+body[data-theme] .cert-tag,
+body[data-theme] .cert-issuer,
+body[data-theme] .project-github-link:hover {
+  color: var(--primary);
+}
+
+/* Full-section theme previews */
+body[data-theme] {
+  background-color: var(--bg-dark);
+}
+
+body[data-theme] #about {
+  background: radial-gradient(circle at 80% 30%, var(--primary-glow), transparent 32%), var(--bg-dark);
+}
+
+body[data-theme] #skills,
+body[data-theme] #certificates {
+  background: var(--skills-gradient), var(--section-surface);
+}
+
+body[data-theme] #experience,
+body[data-theme] #education {
+  background: linear-gradient(145deg, var(--section-surface-alt), var(--bg-dark));
+}
+
+body[data-theme] #work,
+body[data-theme] #contact {
+  background: linear-gradient(180deg, var(--bg-dark), var(--section-surface), var(--bg-dark));
+}
+
+body[data-theme] .project-card,
+body[data-theme] .cert-card,
+body[data-theme] .skills-category-card,
+body[data-theme] .timeline-card,
+body[data-theme] .contact-card,
+body[data-theme] .modal-card {
+  background-color: var(--card-surface);
+}
+
+body[data-theme] header,
+body[data-theme] footer {
+  background-color: color-mix(in srgb, var(--bg-dark) 92%, var(--primary) 8%);
+}
+
 /* Reset and Global Styles */
 * {
   box-sizing: border-box;
@@ -39,6 +127,84 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
+}
+
+/* Temporary live theme tester */
+.theme-tester {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1000;
+}
+
+.theme-tester-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  background: #111827;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.theme-options {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.65rem);
+  display: none;
+  width: 11rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.8rem;
+  background: #111827;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5);
+}
+
+.theme-tester.open .theme-options {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.55rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #d1d5db;
+  text-align: left;
+  cursor: pointer;
+}
+
+.theme-option:hover,
+.theme-option.active {
+  background: #251f38;
+  color: #ffffff;
+}
+
+.theme-swatch {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.theme-swatch-original { background: #8245ec; }
+.theme-swatch-ocean { background: #0ea5e9; }
+.theme-swatch-emerald { background: #10b981; }
+.theme-swatch-sunset { background: #f97316; }
+
+@media (max-width: 480px) {
+  .theme-tester-toggle span {
+    display: none;
+  }
 }
 
 /* Grid Background Overlay */
