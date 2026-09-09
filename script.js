@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
   initTypewriter();
   initTiltEffect();
-  initScrollReveal();
   initProjects();
   initModal();
   initContactForm();
   initExperiences();
   initCertificateCarousel();
+  initScrollReveal();
 });
 
 function initCertificateCarousel() {
@@ -201,8 +201,24 @@ function initTiltEffect() {
 }
 
 function initScrollReveal() {
-  const elements = document.querySelectorAll(".scroll-reveal");
+  // Reveal individual pieces after the project and experience cards are rendered.
+  document.querySelectorAll("section.scroll-reveal").forEach(section => {
+    section.classList.remove("scroll-reveal");
+  });
+  const elements = document.querySelectorAll(
+    "#about > *, .section-title-wrapper, .section-description, " +
+    ".skills-category-card, .timeline-card, .project-card, .certificate-item, .contact-card"
+  );
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reducedMotion.matches || !("IntersectionObserver" in window)) return;
 
+  elements.forEach(el => {
+    el.classList.add("scroll-reveal");
+    const siblings = Array.from(el.parentElement.children);
+    el.style.setProperty("--reveal-delay", `${(siblings.indexOf(el) % 3) * 90}ms`);
+    if (el.closest(".align-left")) el.dataset.reveal = "left";
+    if (el.closest(".align-right")) el.dataset.reveal = "right";
+  });
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -211,11 +227,22 @@ function initScrollReveal() {
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
+    threshold: 0.08,
+    rootMargin: "0px 0px -24px 0px"
   });
 
   elements.forEach(el => observer.observe(el));
+  // Keyboard navigation must never land on an invisible card or link.
+  elements.forEach(el => el.addEventListener("focusin", () => {
+    el.classList.add("visible");
+    observer.unobserve(el);
+  }));
+  reducedMotion.addEventListener("change", event => {
+    if (event.matches) {
+      observer.disconnect();
+      elements.forEach(el => el.classList.add("visible"));
+    }
+  });
 }
 
 function initModal() {

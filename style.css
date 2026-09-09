@@ -165,16 +165,58 @@ body {
   100% { transform: scale(1); }
 }
 
-.scroll-reveal {
+.scroll-reveal:not(section) {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
-              transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  translate: 0 32px;
 }
 
-.scroll-reveal.visible {
+.scroll-reveal[data-reveal="left"] { translate: -28px 16px; }
+.scroll-reveal[data-reveal="right"] { translate: 28px 16px; }
+
+.scroll-reveal.visible:not(section) {
   opacity: 1;
-  transform: translateY(0);
+  translate: none;
+  animation: scroll-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) backwards;
+}
+
+@keyframes scroll-enter {
+  from { opacity: 0; translate: 0 32px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+.scroll-reveal[data-reveal="left"].visible { animation-name: scroll-enter-left; }
+.scroll-reveal[data-reveal="right"].visible { animation-name: scroll-enter-right; }
+
+@keyframes scroll-enter-left {
+  from { opacity: 0; translate: -28px 16px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes scroll-enter-right {
+  from { opacity: 0; translate: 28px 16px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+.section-title-wrapper.visible .section-line {
+  transform-origin: left;
+  animation: scroll-line 800ms ease-out var(--reveal-delay, 0ms) backwards;
+}
+
+@keyframes scroll-line {
+  from { scale: 0 1; }
+  to { scale: 1 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .scroll-reveal:not(section),
+  .scroll-reveal.visible:not(section) {
+    opacity: 1;
+    translate: none;
+    animation: none;
+  }
+  .section-title-wrapper.visible .section-line,
+  .blur-blob { animation: none; }
 }
 
 header {
