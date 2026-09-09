@@ -45,6 +45,32 @@ body[data-theme] .project-github-link:hover {
   color: var(--primary);
 }
 
+body[data-theme] .project-desc,
+body[data-theme] .timeline-company,
+body[data-theme] .skill-name {
+  color: var(--text-gray-light);
+}
+
+body[data-theme] .timeline-date,
+body[data-theme] .cert-date,
+body[data-theme] .skills-category-title {
+  color: var(--text-gray-medium);
+}
+
+body[data-theme] .cert-date i {
+  color: var(--primary);
+}
+
+body[data-theme] .project-tag,
+body[data-theme] .cert-tag {
+  background: color-mix(in srgb, var(--primary) 12%, var(--card-surface));
+}
+
+body[data-theme] .timeline-skill-badge,
+body[data-theme] .certificates-nav {
+  color: var(--bg-dark);
+}
+
 body[data-theme] {
   background-color: var(--bg-dark);
 }
