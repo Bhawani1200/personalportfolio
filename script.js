@@ -206,7 +206,7 @@ function initScrollReveal() {
     section.classList.remove("scroll-reveal");
   });
   const elements = document.querySelectorAll(
-    "#about > *, .section-title-wrapper, .section-description, " +
+    "#about > *, .section-title-wrapper, " +
     ".skills-category-card, .timeline-card, .project-card, .certificate-item, .contact-card"
   );
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -215,7 +215,7 @@ function initScrollReveal() {
   elements.forEach(el => {
     el.classList.add("scroll-reveal");
     const siblings = Array.from(el.parentElement.children);
-    el.style.setProperty("--reveal-delay", `${(siblings.indexOf(el) % 3) * 90}ms`);
+    el.style.setProperty("--reveal-delay", `${(siblings.indexOf(el) % 3) * 140}ms`);
     if (el.closest(".align-left")) el.dataset.reveal = "left";
     if (el.closest(".align-right")) el.dataset.reveal = "right";
   });
@@ -223,23 +223,33 @@ function initScrollReveal() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.08,
-    rootMargin: "0px 0px -24px 0px"
+    threshold: 0,
+    rootMargin: "0px 0px -64px 0px"
   });
 
+  // Reset only once fully outside the viewport, avoiding flicker at the reveal edge.
+  const resetObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting && !entry.target.contains(document.activeElement)) {
+        entry.target.classList.remove("visible");
+      }
+    });
+  });
+  elements.forEach(el => resetObserver.observe(el));
   elements.forEach(el => observer.observe(el));
   // Keyboard navigation must never land on an invisible card or link.
   elements.forEach(el => el.addEventListener("focusin", () => {
     el.classList.add("visible");
     observer.unobserve(el);
+    resetObserver.unobserve(el);
   }));
   reducedMotion.addEventListener("change", event => {
     if (event.matches) {
       observer.disconnect();
+      resetObserver.disconnect();
       elements.forEach(el => el.classList.add("visible"));
     }
   });
