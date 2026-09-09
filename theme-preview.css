@@ -1,0 +1,118 @@
+body[data-theme="lavender"] {
+  --bg-dark: #100c1c;
+  --section-surface: #191329;
+  --section-surface-alt: #221a36;
+  --card-surface: #231b34;
+  --primary: #b79aff;
+  --text-white: #f7f2ff;
+  --text-gray-light: #ddd2ef;
+  --text-gray-medium: #b5a8c9;
+  --text-gray-dark: #a89bbd;
+  --btn-gradient: linear-gradient(90deg, #7040bd, #864bb5);
+}
+
+body[data-theme="mint"] {
+  --bg-dark: #081612;
+  --section-surface: #10221c;
+  --section-surface-alt: #163027;
+  --card-surface: #172b24;
+  --primary: #72dbb1;
+  --text-white: #f4fff8;
+  --text-gray-light: #d1e8dc;
+  --text-gray-medium: #a7c4b5;
+  --text-gray-dark: #9cb8aa;
+  --btn-gradient: linear-gradient(90deg, #216b51, #267762);
+}
+
+body[data-theme="amber"] {
+  --bg-dark: #19120b;
+  --section-surface: #251b11;
+  --section-surface-alt: #322519;
+  --card-surface: #302319;
+  --primary: #edbd70;
+  --text-white: #fff8eb;
+  --text-gray-light: #ebdbc2;
+  --text-gray-medium: #c8b397;
+  --text-gray-dark: #bca68b;
+  --btn-gradient: linear-gradient(90deg, #87561e, #946127);
+}
+
+body[data-theme="rose"] {
+  --bg-dark: #1b0e17;
+  --section-surface: #291622;
+  --section-surface-alt: #361e2e;
+  --card-surface: #321d2b;
+  --primary: #f4a3c2;
+  --text-white: #fff4f8;
+  --text-gray-light: #efd3df;
+  --text-gray-medium: #c9a9b9;
+  --text-gray-dark: #bda0af;
+  --btn-gradient: linear-gradient(90deg, #a13e67, #994878);
+}
+
+body[data-theme]:not([data-theme="ocean"]) {
+  --primary-glow: color-mix(in srgb, var(--primary) 22%, transparent);
+  --primary-glow-heavy: color-mix(in srgb, var(--primary) 40%, transparent);
+  --skills-gradient: linear-gradient(135deg, var(--primary-glow), transparent 65%);
+  --bg-input: var(--bg-dark);
+}
+
+body[data-theme] .project-desc,
+body[data-theme] .timeline-company,
+body[data-theme] .skill-name {
+  color: var(--text-gray-light);
+}
+
+body[data-theme] .timeline-date,
+body[data-theme] .cert-date,
+body[data-theme] .skills-category-title {
+  color: var(--text-gray-medium);
+}
+
+body[data-theme] .cert-date i { color: var(--primary); }
+
+body[data-theme] .project-tag,
+body[data-theme] .cert-tag {
+  background: color-mix(in srgb, var(--primary) 12%, var(--card-surface));
+}
+
+body[data-theme] .timeline-skill-badge,
+body[data-theme] .certificates-nav {
+  color: var(--bg-dark);
+}
+
+.theme-preview {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1000;
+  width: min(310px, calc(100vw - 2rem));
+  padding: 0.85rem 1rem;
+  color: var(--text-white);
+  background: var(--card-surface);
+  border: 1px solid var(--primary);
+  border-radius: 14px;
+  box-shadow: 0 8px 30px #0006;
+}
+
+.theme-preview summary { cursor: pointer; font-weight: 600; }
+.theme-preview label { display: block; margin: 0.7rem 0 0.4rem; font-size: 0.8rem; }
+.theme-preview select {
+  width: 100%;
+  padding: 0.6rem;
+  color: var(--text-white);
+  background: var(--bg-dark);
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+.theme-preview p { margin: 0.5rem 0; font-size: 0.75rem; color: var(--text-gray-light); }
+.theme-preview button {
+  padding: 0.4rem 0.65rem;
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  color: var(--text-white);
+  background: transparent;
+  cursor: pointer;
+}
+.theme-preview :focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }

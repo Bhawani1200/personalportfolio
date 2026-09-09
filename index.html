@@ -24,6 +24,7 @@
     />
 
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./theme-preview.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </head>
@@ -768,7 +769,24 @@
 
     <div id="toast-container" class="toast-container"></div>
 
+    <aside class="theme-preview" aria-label="Color preview">
+      <details open>
+        <summary>Try colors</summary>
+        <label for="theme-choice">Choose a matching palette</label>
+        <select id="theme-choice">
+          <option value="ocean">Ocean — blue &amp; cool white (current)</option>
+          <option value="lavender">Lavender — violet &amp; soft lilac</option>
+          <option value="mint">Mint — green &amp; ivory</option>
+          <option value="amber">Amber — gold &amp; warm cream</option>
+          <option value="rose">Rose — pink &amp; blush white</option>
+        </select>
+        <p>Preview only. Choose your favorite later.</p>
+        <button id="theme-reset" type="button">Reset to Ocean</button>
+      </details>
+    </aside>
+
     <script src="./constants.js"></script>
     <script src="./script.js"></script>
+    <script src="./theme-preview.js"></script>
   </body>
 </html>
