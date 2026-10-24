@@ -6,7 +6,7 @@ const pdf = document.getElementById("certificate-pdf");
 document.getElementById("certificate-title").textContent = certificate.title;
 document.getElementById("certificate-meta").textContent = certificate.meta;
 document.getElementById("certificate-download").href = certificate.file;
-const extension = certificate.type === "pdf" ? "pdf" : "jpg";
+const extension = (certificate.type || certificate.file.split(".").pop()).toLowerCase();
 document.getElementById("certificate-download").download = `${certificate.title.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}-certificate.${extension}`;
 
 if (certificate.type === "pdf") {

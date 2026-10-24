@@ -1427,12 +1427,17 @@ section {
   justify-content: center;
   min-height: calc(100vh - 4.5rem);
   padding: clamp(1rem, 4vw, 3rem);
+  overflow: auto;
 }
 
 .certificate-wide-image {
   display: block;
-  width: min(100%, 90rem);
+  width: auto;
+  max-width: min(100%, 90rem);
+  max-height: calc(100vh - 8rem);
   height: auto;
+  margin: 0 auto;
+  object-fit: contain;
   background: #ffffff;
   box-shadow: 0 14px 55px rgba(0, 0, 0, 0.6);
 }

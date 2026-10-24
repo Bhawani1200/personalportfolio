@@ -91,8 +91,7 @@ const certificateData = {
   "ecommerce-masterclass": {
     title: "Java Spring Boot Full Stack: eCommerce Project Masterclass",
     meta: "Udemy · 1 September 2026 · 93 total hours",
-    file: "./assets/certificates/UC-78191506-6e17-4403-bef3-d9bf4ff4cce9.pdf",
-    type: "pdf"
+    file: "./assets/certificates/udemy course.png"
   },
   "udaan-internship": {
     title: "Internship Certificate of Appreciation",
